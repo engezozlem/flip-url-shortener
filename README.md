@@ -46,9 +46,9 @@ long URLs.
     mvn spring-boot:run
     ```
 
-### API Endpoints
+## Endpoints
 
-#### Shorten a URL
+### Shorten URL
 
 - **Endpoint:** `POST /api/v1/urls/shorten`
 - **Description:** Receives a long URL and returns a shortened URL.
@@ -56,7 +56,7 @@ long URLs.
 
     ```json
     {
-      "longUrl": "https://open.spotify.com/track/0ofHAoxe9vBkTCp2UQIavz?si=84f546fbc6df4d63"
+      "longUrl": "https://www.youtube.com/watch?v=_dmOgDlWAkU&t=2175s"
     }
     ```
 
@@ -66,7 +66,7 @@ long URLs.
 
         ```json
         {
-          "shortUrl": "IA6yiA80"
+          "shortUrl": "https://youtube.com/SPx67s3I"
         }
         ```
 
@@ -80,17 +80,21 @@ long URLs.
         }
         ```
 
-#### Retrieve Original URL
+### Retrieve Original URL
 
-- **Endpoint:** `GET /api/v1/urls/{shortUrl}`
+- **Endpoint:** `GET /api/v1/urls`
 - **Description:** Receives a shortened URL and returns the original long URL.
+- **Query Parameter:**
+
+    - **`shortUrl`**: The shortened URL.
+
 - **Responses:**
 
     - **200 OK:**
 
         ```json
         {
-          "longUrl": "https://open.spotify.com/track/0ofHAoxe9vBkTCp2UQIavz?si=84f546fbc6df4d63"
+          "longUrl": "https://www.youtube.com/watch?v=_dmOgDlWAkU&t=2175s"
         }
         ```
 
@@ -104,8 +108,6 @@ long URLs.
         }
         ```
 
-### Swagger UI
-
 You can access the Swagger UI for the API documentation and testing via this [link](http://localhost:8080).
 
 ### Roadmap
@@ -114,15 +116,15 @@ You can access the Swagger UI for the API documentation and testing via this [li
 - TODO-2 : Storing can be done in Redis
 - TODO-3 : Short url check for forbidden urls
 - TODO 4 : domain name char checker (like min 1) 
-- TODO-5 : Circuit Breaker check
-- TODO-6 : Apply a load test
-- TODO-7 : Dockerize
-- TODO-8 : pom.xml version names
-- TODO-9 : Magic string check
-- TODO-10 : Regex, SB cost check
-- TODO-11 : Can we use get instead o post?
-- TODO-12 : add warm up
-- TODO-13 : health check
+- TODO-5 : circuit Breaker check
+- TODO-6 : apply a load test
+- TODO-7 : create docker image and add into docker-compose
+- TODO-8 : fix pom.xml version names
+- TODO-9 : magic string check
+- TODO-10 : regex, string builder cost check
+- TODO-11 : can we use get instead o post?
+- TODO-12 : add warm up for initial
+- TODO-13 : add health check
 - TODO-14 : create temp object for domain and schema names. we are creating 2 URI objects for each url. avoid unnecessary call
 
 ### Error Handling
