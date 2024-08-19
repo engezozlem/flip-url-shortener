@@ -127,13 +127,49 @@ You can access the Swagger UI for the API documentation and testing via this [li
 - TODO-13 : add health check
 - TODO-14 : create temp object for domain and schema names. we are creating 2 URI objects for each url. avoid unnecessary call
 
-### Error Handling
+## Error Handling
 
 The service uses global exception handling to provide consistent error responses. Common exceptions include:
 
 - **Global Exception:** Returns a generic error message with HTTP status 500 (Internal Server Error).
+
+    ```json
+    {
+      "errors": {
+        "error": "An unexpected error occurred"
+      }
+    }
+    ```
+
 - **URL Not Found Exception:** Returns a 404 (Not Found) status when the requested shortened URL does not exist.
 
+    ```json
+    {
+      "errors": {
+        "error": "URL not found"
+      }
+    }
+    ```
+
+- **Schema Name Exception:** Returns a 400 (Bad Request) status when there is an issue with the schema name in the URL.
+
+    ```json
+    {
+      "errors": {
+        "error": "Incorrect URL schema name"
+      }
+    }
+    ```
+
+- **Domain Name Exception:** Returns a 400 (Bad Request) status when there is an issue with the domain name in the URL.
+
+    ```json
+    {
+      "errors": {
+        "error": "Incorrect URL domain name"
+      }
+    }
+    ```
 ### Configuration
 
 - **Swagger Config:** Customizes Swagger UI with contact information and API details.
