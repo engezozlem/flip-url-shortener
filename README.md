@@ -115,14 +115,14 @@ You can access the Swagger UI for the API documentation and testing via this [li
 - TODO-1 : Authentication layer
 - TODO-2 : Storing can be done in Redis
 - TODO-3 : Short url check for forbidden urls
-- TODO 4 : Domain name char checker (like min 1) 
+- TODO-4 : Domain name char checker (like min 1) 
 - TODO-5 : Circuit breaker check
 - TODO-6 : Apply a load test
 - TODO-7 : Create docker image and add into docker-compose
 - TODO-8 : Fix pom.xml version names
 - TODO-9 : Magic string check
 - TODO-10 : Regex, string builder cost check
-- TODO-11 : Can we use get instead o post?
+- TODO-11 : Can we use get instead of post?
 - TODO-12 : Add warm up for initial
 - TODO-13 : Add health check
 - TODO-14 : Create temp object for domain and schema names (maybe also add short url). we are creating 2 URI objects for each url. avoid unnecessary call
