@@ -10,9 +10,11 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -74,7 +76,7 @@ public class UrlShortenerController {
         if (result.hasErrors()) {
             Map<String, String> errors = new HashMap<>();
             result.getAllErrors().forEach(error ->
-                    errors.put(((org.springframework.validation.FieldError) error).getField(), error.getDefaultMessage())
+                    errors.put(((FieldError) error).getField(), error.getDefaultMessage())
             );
             return ResponseEntity.badRequest().body(new ShortenUrlErrorResponse(errors));
         }
@@ -108,6 +110,9 @@ public class UrlShortenerController {
     )
     public ResponseEntity<?> getOriginalUrl(@RequestParam String shortUrl) {
         String longUrl = urlShortenerService.getOriginalUrl(shortUrl);
-        return longUrl != null ? ResponseEntity.ok(new LongUrlResponse(longUrl)) : ResponseEntity.notFound().build();
+        if (StringUtils.isEmpty(longUrl)) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(new LongUrlResponse(longUrl));
     }
 }

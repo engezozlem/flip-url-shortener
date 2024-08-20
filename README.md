@@ -115,17 +115,19 @@ You can access the Swagger UI for the API documentation and testing via this [li
 - TODO-1 : Authentication layer
 - TODO-2 : Storing can be done in Redis
 - TODO-3 : Short url check for forbidden urls
-- TODO 4 : domain name char checker (like min 1) 
-- TODO-5 : circuit Breaker check
-- TODO-6 : apply a load test
-- TODO-7 : create docker image and add into docker-compose
-- TODO-8 : fix pom.xml version names
-- TODO-9 : magic string check
-- TODO-10 : regex, string builder cost check
-- TODO-11 : can we use get instead o post?
-- TODO-12 : add warm up for initial
-- TODO-13 : add health check
-- TODO-14 : create temp object for domain and schema names. we are creating 2 URI objects for each url. avoid unnecessary call
+- TODO 4 : Domain name char checker (like min 1) 
+- TODO-5 : Circuit breaker check
+- TODO-6 : Apply a load test
+- TODO-7 : Create docker image and add into docker-compose
+- TODO-8 : Fix pom.xml version names
+- TODO-9 : Magic string check
+- TODO-10 : Regex, string builder cost check
+- TODO-11 : Can we use get instead o post?
+- TODO-12 : Add warm up for initial
+- TODO-13 : Add health check
+- TODO-14 : Create temp object for domain and schema names (maybe also add short url). we are creating 2 URI objects for each url. avoid unnecessary call
+- TODO-15 : Add different spring environment profiles like stage, pre-prod, prod etc.
+
 
 ## Error Handling
 
@@ -175,25 +177,9 @@ The service uses global exception handling to provide consistent error responses
 - **Swagger Config:** Customizes Swagger UI with contact information and API details.
 - **Redirect Controller:** Redirects the root URL to the Swagger UI for ease of access.
 
-### License
-
-This project is licensed under the [MIT License]().
-
 ### Contact
 
 For any questions or feedback, you can reach out to:
 
 - **Name:** Özlem Engez
 - **Email:** engezozlem8@gmail.com
-
-## Contributing
-
-Contributions are welcome! Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
-
-## Acknowledgments
-
-- Thanks to the [Spring Boot](https://spring.io/projects/spring-boot) and [Swagger](https://swagger.io/) communities for
-  their support and tools.
-
-
-

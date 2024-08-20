@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class SwaggerRedirectController {
+    private static final String SWAGGER_REDIRECT_URL = "redirect:/swagger-ui.html";
 
     /**
      * Redirects the root URL ("/") to the Swagger UI page.
@@ -17,6 +18,6 @@ public class SwaggerRedirectController {
      */
     @GetMapping("/")
     public String redirectToSwagger() {
-        return "redirect:/swagger-ui.html";
+        return SWAGGER_REDIRECT_URL;
     }
 }
